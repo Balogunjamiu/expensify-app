@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux'
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
-import getVisibleExpenses from './selectors/expenses'
-import {addExpense} from './actions/expenses';
 import 'normalize.css/normalize.css';
 import './styles/style.scss';
 import 'react-dates/lib/css/_datepicker.css'
@@ -15,5 +13,4 @@ const jsx = (
         <AppRouter/>
     </Provider>    
     )
-ReactDOM.render(jsx, document.getElementById('app'))
-
+ReactDOM.render(jsx,document.getElementById('app'))
