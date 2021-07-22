@@ -1,6 +1,6 @@
 const path = require('path')
 const MiniCssExtractPlugin  = require('mini-css-extract-plugin')
-const { webpack } = require('webpack')
+const  webpack = require('webpack')
 //process .env.Node
 process.env_NODE_ENV = process.env_NODE_ENV || 'development'
 if (process.env_NODE_ENV === 'test'){
