@@ -4,15 +4,15 @@ import expenses from '../fixtures/expenses'
 import {EditExpensePage} from '../../components/EditexpensePage'
 
 
-let editExpense, history, startRemoveExpense,wrapper
+let startEditExpense, history, startRemoveExpense,wrapper
 
 beforeEach(()=>{
-    editExpense = jest.fn()
+    startEditExpense = jest.fn()
     history = {push: jest.fn()}
     startRemoveExpense = jest.fn()
     wrapper = shallow(
     <EditExpensePage
-         editExpense={editExpense} 
+    startEditExpense={startEditExpense} 
         startRemoveExpense={startRemoveExpense} 
         history={history}
         expense={expenses[2]}/>)
@@ -23,7 +23,7 @@ test('should render edits expense Page Correctly', ()=>{
 test('should edit an expense correctly after submisssion', ()=>{
     wrapper.find('ExpenseForm').prop('onSubmit')(expenses[2])
     expect(history.push).toHaveBeenCalledWith('/')
-    expect(editExpense).toHaveBeenCalledWith(expenses[2].id, expenses[2])
+    expect(startEditExpense).toHaveBeenCalledWith(expenses[2].id, expenses[2])
 })
 test('should remove expense correctly after submisssion', ()=>{
     wrapper.find('button').simulate('click')
