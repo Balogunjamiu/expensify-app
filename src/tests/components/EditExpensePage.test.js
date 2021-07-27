@@ -22,12 +22,12 @@ test('should render edits expense Page Correctly', ()=>{
 })
 test('should edit an expense correctly after submisssion', ()=>{
     wrapper.find('ExpenseForm').prop('onSubmit')(expenses[2])
-    expect(history.push).toHaveBeenCalledWith('/')
+    expect(history.push).toHaveBeenCalledWith('/dashboard')
     expect(startEditExpense).toHaveBeenCalledWith(expenses[2].id, expenses[2])
 })
 test('should remove expense correctly after submisssion', ()=>{
     wrapper.find('button').simulate('click')
-    expect(history.push).toHaveBeenCalledWith('/')
+    expect(history.push).toHaveBeenCalledWith('/dashboard')
     expect(startRemoveExpense).toHaveBeenCalledWith({
         id : expenses[2].id
     })
