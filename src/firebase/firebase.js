@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/database";
+import "firebase/auth";
 //import "firebase/analytics";
 
 const firebaseConfig = {
@@ -16,7 +17,8 @@ const firebaseConfig = {
   //firebase.analytics();
 
   const database = firebase.database()
-  export {firebase, database as default}
+  const googleAuthProvider = new firebase.auth.GoogleAuthProvider().setCustomParameters({'prompt':'select_account'})
+  export {firebase,googleAuthProvider, database as default}
   // database.ref('notes/-Mez3kOEXd2X4m7oNDQE').remove()
 
     //child_remove

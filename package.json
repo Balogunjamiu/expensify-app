@@ -23,6 +23,7 @@
     "css-loader": "^5.2.6",
     "express": "^4.17.1",
     "firebase": "^8.7.1",
+    "history": "4.10.1",
     "live-server": "^1.2.1",
     "mini-css-extract-plugin": "^2.1.0",
     "moment": "^2.29.1",
