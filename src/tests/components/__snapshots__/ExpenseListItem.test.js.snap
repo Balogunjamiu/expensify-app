@@ -1,18 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render expenseplist item with fixtures 1`] = `
-<div>
-  <Link
-    to="/edit/2"
-  >
-    <h3>
+<Link
+  className="list-item"
+  to="/edit/2"
+>
+  <div>
+    <h3
+      className="list-item__title"
+    >
       Rent
     </h3>
-  </Link>
-  <p>
+    <span
+      className="list-item__subtitle"
+    >
+       
+      December 28th, 1969
+    </span>
+  </div>
+  <h3
+    className="list-item__data"
+  >
     $1,095.00
-    -
-    December 28th, 1969
-  </p>
-</div>
+  </h3>
+</Link>
 `;
