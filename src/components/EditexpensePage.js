@@ -1,9 +1,14 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import Modal from 'react-modal'
 import ExpenseForm from './ExpenseForm'
 import {startRemoveExpense, startEditExpense} from '../actions/expenses'
-
+Modal.setAppElement('#app')
  export class EditExpensePage extends React.Component{
+    state= {
+        isClosed: false
+        
+    }
      onSubmit=(expense)=>{
         this.props.startEditExpense(this.props.expense.id, expense)
         this.props.history.push('/dashboard')
@@ -12,6 +17,19 @@ import {startRemoveExpense, startEditExpense} from '../actions/expenses'
         this.props.startRemoveExpense({id: this.props.expense.id})
         this.props.history.push('/dashboard')
      }
+     isClosed=()=>{
+         this.setState(()=>({
+             isClosed:false
+            }))
+     }
+     isOpen=()=>{
+        this.setState(()=>({
+            isClosed:true
+           }))
+    }
+    backHome=()=>{
+        this.props.history.push('/dashboard')
+    }
     render(){
         return (
             <div>
@@ -23,9 +41,24 @@ import {startRemoveExpense, startEditExpense} from '../actions/expenses'
                 <div className="content-container">
                 <ExpenseForm 
                 expense={this.props.expense}
-                onSubmit={this.onSubmit}
-                />
-                <button className="button button--secondary" onClick={this.onRemove}>Remove Expense</button>
+                onSubmit={this.onSubmit}/>
+                <button className="button button--secondary"
+                    onClick={this.isOpen}
+                >Remove Expense</button>
+                    <button className="button" onClick={this.backHome}>Home</button>
+                <Modal
+                isOpen={this.state.isClosed}
+                onRequestClose = {this.isClosed}
+                contentLabel = "Selected Option"
+                closeTimeoutMS = {10}
+                className="modal"
+                >
+                    <h3 className="modal__title">Are you sure</h3>
+                    <div className="modal_button">
+                    <button className="button__modal red"  onClick={this.onRemove}>Yes</button>
+                    <button className="button__modal green"  onClick={this.isClosed}>No</button>
+                    </div>
+                </Modal>
                 </div>
             </div>
         )

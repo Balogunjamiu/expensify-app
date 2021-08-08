@@ -9,7 +9,11 @@ export class AddExpensePage extends React.Component{
         this.props.startAddExpense(expense)
         this.props.history.push('/dashboard')
     }
+    backHome=()=>{
+        this.props.history.push('/dashboard')
+    }
     render(){
+
         return (
             <div>
                 <div className="page-header">
@@ -20,12 +24,17 @@ export class AddExpensePage extends React.Component{
                 <div className="content-container">
                 <ExpenseForm 
                 onSubmit= {this.onSubmit} />
+                <button className="button" onClick={this.backHome}>Home</button>
                 </div>
             </div>
         )
     }
 }
 
-const mapDispatchToProps = (dispatch)=>({
-    startAddExpense:(expense)=> dispatch(startAddExpense(expense))})
+const mapDispatchToProps = (dispatch)=>{
+    return{
+        startAddExpense:(expense)=> dispatch(startAddExpense(expense))
+        
+    }
+    }
 export default connect(undefined,mapDispatchToProps )(AddExpensePage)

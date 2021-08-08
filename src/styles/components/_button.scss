@@ -15,3 +15,16 @@
 .button--secondary {
     background: #888888;
 }
+.button__modal{
+    font-weight: 400;
+    margin: 10px;
+    padding: 15px
+}
+.red {
+    @extend .button__modal;
+    background-color: red;
+}
+.green{
+    @extend .button__modal;
+    background-color: green;
+}

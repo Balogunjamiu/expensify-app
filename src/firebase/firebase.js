@@ -18,7 +18,8 @@ const firebaseConfig = {
 
   const database = firebase.database()
   const googleAuthProvider = new firebase.auth.GoogleAuthProvider().setCustomParameters({'prompt':'select_account'})
-  export {firebase,googleAuthProvider, database as default}
+  const githubAuthProvider = new firebase.auth.GithubAuthProvider().setCustomParameters({'prompt':'select_account'})
+  export {firebase,googleAuthProvider, githubAuthProvider, database as default}
   // database.ref('notes/-Mez3kOEXd2X4m7oNDQE').remove()
 
     //child_remove
