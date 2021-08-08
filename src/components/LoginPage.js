@@ -7,7 +7,7 @@ export const LoginPage = ({startLoginWithGithub, startLoginWithGoogle})=>(
             <h1 className="box-layout__title">Expensify</h1>
             <p>It is time to get your expenses under control</p>
             <button className="button" onClick={startLoginWithGoogle}>Login with Google</button>
-            <button className="button" onClick={startLoginWithGithub}>Login with Github</button>
+            <button className="button gap" onClick={startLoginWithGithub}>Login with Github</button>
         </div>
     </div>
 )
